@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+/*container is top/bottom*/
+/*row is left/right*/
+*{
+    font-family: 'Lato', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+h1,h2,h3,h4,h5,h6, span{
+    color: #242424;
+    text-align: center;
+    line-height: 1.25;
+}
+
+h1{
+    font-size: 36px;
+}
+
+p{
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+/*NAVIGATION BAR */
+
+nav{
+    height: 100px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    /*center to both sides of the page*/
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
+}
+
+li{
+    /*removes bullet points*/
+    list-style-type:none;
+}
+
+/*catches the entire height of the page*/
+.flex-1{
+    flex:1;
+}
+
+.flex{
+    display: flex;
+}
+
+.nav__link--list{
+    display:flex;
+}
+
+.nav__link--anchor{
+    margin: 0 12px;
+    color: #242424;
+    /*remove underline*/
+    text-decoration: none;
+    /*from our imports at the top*/
+    font-weight: 700;
+}
+
+.nav__link--anchor-primary{
+    background-color: #9030b1;
+    padding:8px 20px;
+    border-radius: 50px;
+    color: white;
+    /*makes hover transition really smooth*/
+    transition: all 300ms ease;
+}
+
+/*changes the color using :hover when hovering over this link*/
+.nav__link--anchor-primary:hover{
+    background-color: #de2ed8;
+}
+
+.personal-logo{
+    font-size:24px;
+    color: #6030b1;
+    margin: 0 12px;
+    font-weight: bold;
+}
+
+/* clean center for the about me info*/
+.row{
+    width:100%;
+    max-width: 800px;
+    margin:0 auto;
+    padding: 0 12px;
+}
+
+/* every second section will have a background color of gray*/
+section:nth-child(even){
+    background-color: #b3b3b3;
+}
+
+.container{
+    padding: 50px 0;
+}
+
+.section__title{
+    margin-bottom: 20px;
+}
+    
+/*
+
+ABOUT ME
+
+*/
+
+#about-me{
+    /*whats the difference w this and height*/
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-me__info{
+    display: flex;
+    flex-direction: column;
+}
+
+.about-me__info--container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*readjust max width to make it look better*/
+    max-width:600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.text--purple{
+    color: #6030b1;
+}
+
+.para-text--purple{
+    color: #6030b1;
+    font-weight: bold;
+}
+
+.about-me__picture--mask{
+    width: 100px;
+    height: 100px;
+    /* makes pictures border circle*/
+    border-radius: 50%;
+    overflow: hidden;
+    /*makes a shadow around my about-me image*/
+    box-shadow: 0 8px 16px rgba(0, 0, 0);
+    margin-bottom: 28px;
+}
+
+.about-me__picture{
+    width: 100%;
+
+/*Improving my picture*/
+/*play around with this*/
+transform: scale(1.5);
+padding-top: 8px;
+}
+
+.about-me__info--title{
+    margin-bottom: 16px;
+}
+
+.about-me__info--para{
+    font-size: 22px;
+    margin-bottom: 28px;
+}
+
+.about-me__link{
+    font-size: 20px;
+    color: #242424;
+    /*gets rid of any weird symbols or lines*/
+    text-decoration: none;
+    padding: 0 16px;
+}
+
+.about-me__img--container{
+    flex:1;
+    display:flex;
+    align-items: center;
+}
+
+.about-me__img{
+    width: 100%;
+}
+
+/*
+
+TECH - STACK
+*/
+
+.language__img{
+    width: 100px;
+    max-width:100px;
+    /*makes the transition slower (300ms slower)*/
+    transition: all 300ms;
+} 
+
+.language:hover .language__img{
+    filter: brightness(80%);
+    opacity: 0.85;
+    /*makes logo smaller*/
+    transform: scale(0.9);
+}
+
+
+/*this is the child to the parent, focus on width here */
+.language{
+    width: 25%;
+    /*makes the small html text reposition in the center of the logo (language__name)*/
+    display: flex;
+    justify-content: center;
+    /*add this to make it relative for the html text and make bottom:0 make sense */
+    position: relative;
+}
+
+.language__img--wrapper{
+    /*make the image in the center of the flexbox*/
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    padding: 25px 16px;
+}
+
+.language__list{
+    display:flex;
+    width: 100%;
+    /*makes the container multi lined */
+    flex-wrap: wrap;
+}
+
+.language__name{
+    /*does not target/keep the language__name inside language class. 
+    can now reposition it in the .language class to be centered and on top*/
+    position:absolute;
+    /*makes the html text at the bottom of the closest relative thing, in our case
+    the language class/the language logos*/
+    bottom:0;
+    /*when the cursor is not on the logo, no transition is made and the text is hidden*/
+    transform: scale(0);
+    transition: all 300ms;
+    font-size: 20px;
+    opacity: 0;
+
+}
+
+/*targets the language name and scale it back to normal scale(1)*/
+.language:hover .language__name{
+    transform: scale(1);
+    opacity: 1;
+}
+
+/*
+
+PROJECTS 
+
+*/
+
+.project{
+    margin-bottom:135px;
+}
+
+.project__img{
+    width:100%;
+    transition: all 500ms ease;
+}
+
+.project__wrapper{
+    /*20px vertically 80px blur*/
+    box-shadow: 0 20px 100px rgba(0, 0, 0, 0.45);
+    border-radius: 20px;
+    /* we are targetting the wrapper but the image is overflowing it
+    so undo that*/
+    overflow: hidden;
+    /*get rid of unnecesary white edges*/
+    display:flex;
+    /*make sure to add this so the class below this doesnt skip to the top
+    of the page*/
+    position: relative;
+}
+
+.project__wrapper:before{
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0;
+    /* state what you are transitioning to*/
+    transition: opacity 440ms ease;
+    /*creates the background color we set instead of it being a clear blur*/
+    z-index: 2;
+}
+
+.project:hover .project__wrapper:before{
+    /*1 is opaque and 0 is fully transparent*/
+    opacity: 0.7;
+}
+
+/* blur the project image when you hover over it (add transitioning to
+the project class to make it look better */
+.project:hover .project__img{
+    transform: scale(1.07);
+    opacity: 1;
+}
+
+.project__list{
+    padding-top: 40px;
+    
+}
+
+.project__description{
+    /* make sure the text is over the img and not on the side as it was origionally */
+    position: absolute;
+    /*center when having position absolute*/
+    top:50%;
+    /*start at 100% so then we can translate it to what we want
+    which is (-50%) - translate in hover*/
+    transform: translateY(100%);
+    left: 90px;
+    max-width: 550px;
+    /*display text when hovering over it*/
+    z-index: 3;
+    opacity: 0;
+    /*add a coma to make sure to classify both transitions*/
+    transition: transform 450ms, opacity 300ms;
+}
+
+.project:hover .project__description{
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+
+.project__description--title{
+    font-size: 40px;
+    margin-top: 14px;
+}
+
+.project__description--para{
+    margin: 16px 0;
+}
+
+.project__description--sub-title{
+    font-size: 18px;
+}
+
+.project__description--title, 
+.project__description--sub-title,
+.project__description--para,
+.project__description--link{
+    text-align: left;
+    color: white;
+}
+
+.project__description--link{
+    font-size: 24px;
+    margin-right: 16px;
+    text-decoration: none;
+}
